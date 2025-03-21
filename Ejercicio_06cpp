@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int m;
+    cout << "Ingrese el monto: ";
+    cin >> m;
+    int v[] = {200, 100, 50, 20, 10, 5, 1};
+    int c;
+    int l[] = {10, 80, 90, 100, 120, 50, 100};
+    bool fi = false;
+    for (int i = 0; i < 7; i++)
+    {
+        c = m / v[i];
+        m %= v[i];
+        if (c > l[i])
+        {
+            c = l[i];
+            fi = true;
+        }
+        if (c > 0)
+        {
+            if (v[i] >= 10)
+            {
+                cout << c << " billete" << (c > 1 ? "s" : "") << " de " << v[i] << endl;
+            }
+            else
+            {
+                cout << c << " moneda" << (c > 1 ? "s" : "") << " de " << v[i] << endl;
+            }
+        }
+    }
+    if (fi)
+    {
+        cout << "dinero insuficiente." << endl;
+    }
+    return 0;
+}
